@@ -1,4 +1,4 @@
-import { observable, computed, action, makeObservable } from "mobx";
+import { observable, action, makeObservable } from "mobx";
 import Todo from "./Todo";
 
 class TodoList {
@@ -6,19 +6,9 @@ class TodoList {
     constructor() {
         makeObservable(this, {
             todos: observable,
-            taskCount: computed,
-            taskList: computed,
             addTask: action,
             deleteTask: action
         });
-    }
-
-    get taskCount() {
-        return this.todos.length;
-    }
-
-    get taskList() {
-        return this.todos;
     }
 
     addTask(task) {
